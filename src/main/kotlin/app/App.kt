@@ -1,39 +1,61 @@
 package app
 
-import model.Proses
+
+import kotlin.system.exitProcess
 
 class App {
 
-    private val proses: MutableList<Proses> = mutableListOf()
-
-    private fun printHeader(){
-        println("~~~~~~~~~~~~~ Terminal :~Terminal ~~~~~~~~~~~~~~~")
-        println("=================================================")
-
-    }
-
-    private fun inputScore(){
-        println("~~~~~~~~~~ Game Suit Terminal Version ~~~~~~~~~~~")
-        println("=================================================")
-            println("1.Masukan Pemain 1 :  ")
-
-            println("1.Masukan Pemain 2 :  ")
-
-            println("Hasil : $")
-    }
-    private fun printOutput(){
-
-    }
-
-    fun run(){
+    fun app() {
         printHeader()
-        inputScore()
-    }
-
-    companion object{
-        @JvmStatic
-        fun main(args: Array<String>){
-            App().run()
+        readLine()?.let {
+            openMenu(it)
         }
     }
+
+    private fun printHeader() {
+        println(
+            """
+            =========================================
+            ----------- Termial:~ Termial -----------
+            =========================================
+            ------- GAME SUIT TERMINAL VERSION ------
+            =========================================
+            1. PLAYER SUIT
+            2. EXIT
+            =========================================
+            ENTER MENU ? (1/2)
+            =========================================
+        """.trimIndent()
+        )
+    }
+
+    private fun openMenu(menu: String) {
+        when (menu) {
+            /*"1" -> {
+                val proses = Proses()
+                proses.playerSuit( this)
+            }*/
+
+            "2" -> {
+                println("EXIT")
+                exitProcess(0)
+            }
+
+            else -> {
+                println("No Menu Matches")
+                App()
+            }
+        }
+    }
+
+    companion object {
+
+        @JvmStatic
+        fun main(args: Array<String>) {
+            App().app()
+        }
+    }
+    /*override fun sendBack(result: String) {
+        print(result)
+    }*/
 }
