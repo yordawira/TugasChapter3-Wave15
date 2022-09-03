@@ -1,9 +1,9 @@
-package app
-
-
+import model.Proses
 import kotlin.system.exitProcess
+import utils.Roleback
 
-class App {
+
+class App : Roleback{
 
     fun app() {
         printHeader()
@@ -29,12 +29,13 @@ class App {
         )
     }
 
+
     private fun openMenu(menu: String) {
         when (menu) {
-            /*"1" -> {
+            "1" -> {
                 val proses = Proses()
                 proses.playerSuit( this)
-            }*/
+            }
 
             "2" -> {
                 println("EXIT")
@@ -55,7 +56,8 @@ class App {
             App().app()
         }
     }
-    /*override fun sendBack(result: String) {
+
+    override fun sendBack(result: String) {
         print(result)
-    }*/
+    }
 }
